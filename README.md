@@ -1,6 +1,6 @@
 <div align="center">
 
-# kane-spec
+# Kanon
 
 ### Write English. Ship Verified.
 
@@ -14,13 +14,13 @@
 
 ---
 
-**kane-spec** turns plain-English specifications into verified, working web applications. Write what your app should do. An AI agent builds it. Kane CLI tests it in a real browser. Failures feed back to the agent. The loop continues until every flow passes.
+**Kanon** turns plain-English specifications into verified, working web applications. Write what your app should do. An AI agent builds it. Kane CLI tests it in a real browser. Failures feed back to the agent. The loop continues until every flow passes.
 
 No code. No test files. Just English specs and a verified app.
 
 ```
                     ┌─────────────┐
-                    │  .kane.md   │
+                    │  .kanon.md  │
                     │  spec file  │
                     └──────┬──────┘
                            │
@@ -60,11 +60,8 @@ No code. No test files. Just English specs and a verified app.
 ### Install
 
 ```bash
-# Clone this repo
-git clone https://github.com/YOUR_USERNAME/kane-spec.git
-cd kane-spec
-
-# Install and build
+git clone https://github.com/YOUR_USERNAME/kanon.git
+cd kanon
 npm install
 npm run build
 ```
@@ -72,11 +69,10 @@ npm run build
 ### Create a spec
 
 ```bash
-# Generate a sample spec
 node dist/index.js init --name my-app
 ```
 
-This creates `my-app.kane.md`:
+This creates `my-app.kanon.md`:
 
 ```markdown
 ---
@@ -104,14 +100,11 @@ I should see a success message.
 ### Run it
 
 ```bash
-# Set your API key
 export OPENAI_API_KEY=sk-...
-
-# Run the spec
-node dist/index.js run my-app.kane.md --verbose
+node dist/index.js run my-app.kanon.md --verbose
 ```
 
-That's it. kane-spec will:
+That's it. Kanon will:
 
 1. 🤖 **Generate** a complete web app from your spec using the AI agent
 2. 📦 **Install** dependencies and start the server
@@ -147,9 +140,9 @@ Each flow becomes a Kane CLI verification run. Plain English in, pass/fail out.
 
 | Command | Description |
 |---------|-------------|
-| `kane-spec run <file>` | Generate app from spec, verify with Kane, fix until green |
-| `kane-spec verify <file>` | Verify a running app against a spec (no generation) |
-| `kane-spec init [--name]` | Create a sample spec file |
+| `kanon run <file>` | Generate app from spec, verify with Kane, fix until green |
+| `kanon verify <file>` | Verify a running app against a spec (no generation) |
+| `kanon init [--name]` | Create a sample spec file |
 
 ### Options for `run`
 
@@ -162,14 +155,14 @@ Each flow becomes a Kane CLI verification run. Plain English in, pass/fail out.
 
 ## Output
 
-After a run, kane-spec produces:
+After a run, Kanon produces:
 
 - **`kane-verified.json`** — Machine-readable verification manifest
 - **`VERIFICATION_REPORT.md`** — Human-readable report with flow results
 
 ## The Closed Loop
 
-What makes kane-spec different from "run tests after building":
+What makes Kanon different from "run tests after building":
 
 1. **Kane CLI IS the spec.** There's no translation from requirements to tests. The spec file IS both.
 2. **The agent never sees the browser.** It only sees Kane's pass/fail output. Kane is the sole source of truth.
@@ -180,9 +173,9 @@ What makes kane-spec different from "run tests after building":
 
 See the [`examples/`](examples/) directory:
 
-- [`todo.kane.md`](examples/todo.kane.md) — A simple todo app (4 flows)
-- [`signup.kane.md`](examples/signup.kane.md) — Signup form with validation (4 flows)
-- [`checkout.kane.md`](examples/checkout.kane.md) — E-commerce checkout (6 flows)
+- [`todo.kanon.md`](examples/todo.kanon.md) — A simple todo app (4 flows)
+- [`signup.kanon.md`](examples/signup.kanon.md) — Signup form with validation (4 flows)
+- [`checkout.kanon.md`](examples/checkout.kanon.md) — E-commerce checkout (6 flows)
 
 ## Agent Support
 
@@ -201,7 +194,7 @@ agent: openai     # or anthropic, gemini
 ## How It Works
 
 ```
-1. PARSE     → Read .kane.md, extract frontmatter + flows
+1. PARSE     → Read .kanon.md, extract frontmatter + flows
 2. GENERATE  → Send spec to AI agent, get back file contents
 3. SCAFFOLD  → Write files, npm install, start server
 4. VERIFY    → Run each flow through kane-cli run --agent
@@ -215,18 +208,18 @@ agent: openai     # or anthropic, gemini
 
 ```yaml
 # GitHub Actions example
-- name: Verify with kane-spec
+- name: Verify with Kanon
   run: |
     npm install -g @testmuai/kane-cli
     kane-cli login --username ${{ secrets.KANE_USER }} --access-key ${{ secrets.KANE_KEY }}
-    node dist/index.js verify my-app.kane.md --headless
+    node dist/index.js verify my-app.kanon.md --headless
 ```
 
 ## Built for the Kane CLI Hackathon
 
 This project was built for the [Kane CLI Online Hackathon](https://www.kaneclihack.sh/) (Nov 12–26, 2026).
 
-**The idea:** Most people treat Kane CLI as a testing tool. kane-spec treats it as a **specification language**. The spec IS the test. The test IS the spec. There's nothing else.
+**The idea:** Most people treat Kane CLI as a testing tool. Kanon treats it as a **specification language**. The spec IS the test. The test IS the spec. There's nothing else.
 
 ## License
 

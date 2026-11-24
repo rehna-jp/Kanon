@@ -63,7 +63,7 @@ export class Engine {
     const iterations: IterationResult[] = [];
     let currentFiles: Record<string, string> = {};
 
-    this.logger.header('kane-spec');
+    this.logger.header('kanon');
     this.logger.info(`App: ${this.spec.appName}`);
     this.logger.info(`Agent: ${this.spec.agent}`);
     this.logger.info(`Flows: ${this.spec.flows.length}`);

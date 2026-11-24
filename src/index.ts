@@ -25,7 +25,7 @@ import { Logger } from './utils/logger';
 const program = new Command();
 
 program
-  .name('kane-spec')
+  .name('kanon')
   .description('Write English specs. Ship verified apps. Kane CLI is your specification language.')
   .version('1.0.0');
 
@@ -86,7 +86,7 @@ program
       const logger = new Logger(options.verbose);
       const spec = parseSpecFile(specFile);
 
-      logger.header('kane-spec verify');
+      logger.header('kanon verify');
       logger.info(`Verifying ${spec.flows.length} flows against ${spec.url}`);
       logger.divider();
 
@@ -125,10 +125,10 @@ program
 // === INIT command ===
 program
   .command('init')
-  .description('Create a sample .kane.md spec file')
+  .description('Create a sample .kanon.md spec file')
   .option('-n, --name <name>', 'App name', 'my-app')
   .action((options: any) => {
-    const fileName = `${options.name}.kane.md`;
+    const fileName = `${options.name}.kanon.md`;
     const filePath = path.join(process.cwd(), fileName);
 
     if (fs.existsSync(filePath)) {
@@ -158,7 +158,7 @@ Go to the app. Click on "Contact". Fill in the name field with "Alice" and the e
 
     fs.writeFileSync(filePath, template, 'utf-8');
     console.log(chalk.green(`  ✓ Created ${fileName}`));
-    console.log(chalk.gray(`  Edit it, then run: kane-spec run ${fileName}`));
+    console.log(chalk.gray(`  Edit it, then run: kanon run ${fileName}`));
   });
 
 program.parse();

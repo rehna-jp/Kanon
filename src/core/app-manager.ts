@@ -14,7 +14,7 @@ export class AppManager {
   private serverProcess: ChildProcess | null = null;
 
   constructor(workDir: string) {
-    this.appDir = path.join(workDir, '.kane-spec', 'app');
+    this.appDir = path.join(workDir, '.kanon', 'app');
   }
 
   get directory(): string {

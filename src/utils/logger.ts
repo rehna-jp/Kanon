@@ -15,10 +15,10 @@ export class Logger {
 
   header(text: string): void {
     console.log('');
-    console.log(chalk.bold.cyan(`  ╔══════════════════════════════════╗`));
-    console.log(chalk.bold.cyan(`  ║`) + chalk.bold.white(`  ${text.padEnd(30)}  `) + chalk.bold.cyan(`║`));
-    console.log(chalk.bold.cyan(`  ║`) + chalk.gray(`  Write English. Ship Verified. `) + chalk.bold.cyan(`║`));
-    console.log(chalk.bold.cyan(`  ╚══════════════════════════════════╝`));
+    console.log(chalk.bold.cyan(`  ╔══════════════════════════════════════╗`));
+    console.log(chalk.bold.cyan(`  ║`) + chalk.bold.white(`  ${text.padEnd(34)}  `) + chalk.bold.cyan(`║`));
+    console.log(chalk.bold.cyan(`  ║`) + chalk.gray(`  Write English. Ship Verified.     `) + chalk.bold.cyan(`║`));
+    console.log(chalk.bold.cyan(`  ╚══════════════════════════════════════╝`));
     console.log('');
   }
 

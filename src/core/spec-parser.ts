@@ -1,7 +1,7 @@
 /**
  * spec-parser.ts
  * 
- * Parses a .kane.md spec file into structured flows.
+ * Parses a .kanon.md spec file into structured flows.
  * A spec file uses markdown with YAML frontmatter:
  * 
  * ---
@@ -10,14 +10,6 @@
  * agent: openai          # openai | anthropic | gemini
  * max_retries: 5
  * ---
- * 
- * ## Flow: User can sign up
- * Go to the signup page. Enter "alice" as username and "test@example.com" as email.
- * Click the submit button. I should see "Welcome, alice" on the screen.
- * 
- * ## Flow: Empty form shows validation
- * Go to the signup page. Leave all fields empty. Click submit.
- * I should see an error message about required fields.
  */
 
 import * as fs from 'fs';

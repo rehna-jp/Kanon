@@ -46,7 +46,7 @@ export function generateReport(result: EngineResult): string {
   const passCount = result.finalResults.filter((r) => r.passed).length;
   const totalCount = result.finalResults.length;
 
-  let report = `# Kane-Spec Verification Report\n\n`;
+  let report = `# Kanon Verification Report\n\n`;
   report += `**Status:** ${status}\n`;
   report += `**App:** ${result.spec.appName}\n`;
   report += `**Agent:** ${result.spec.agent}\n`;

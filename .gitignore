@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.kanon/
 .kane-spec/
 kane-verified.json
 VERIFICATION_REPORT.md

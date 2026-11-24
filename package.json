@@ -1,10 +1,10 @@
 {
-  "name": "kane-spec",
+  "name": "kanon",
   "version": "1.0.0",
   "description": "Write English specs. Ship verified apps. Kane CLI is your specification language.",
   "main": "dist/index.js",
   "bin": {
-    "kane-spec": "dist/index.js"
+    "kanon": "dist/index.js"
   },
   "type": "commonjs",
   "scripts": {
