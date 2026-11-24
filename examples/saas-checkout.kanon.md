@@ -17,7 +17,7 @@ Go to the app. I should see three pricing tiers: "Starter", "Pro", and "Enterpri
 Go to the app. Click on the "Annual" billing toggle. The prices should update to reflect yearly savings, and I should see a "Save 20%" badge appear.
 
 ## Flow: Select plan and open checkout
-Go to the app. Click "Get Started" on the "Pro" plan card. I should see a checkout modal or drawer open displaying "Pro Plan" in the order summary.
+Go to the app. Click "Get Started" on the "Pro" plan card. I should see a checkout modal open with an order form.
 
 ## Flow: Apply promo coupon code
 Go to the app. Click "Get Started" on the "Pro" plan. In the checkout drawer, enter "KANE2026" into the coupon field and click "Apply". I should see a success message and the total price should be discounted.

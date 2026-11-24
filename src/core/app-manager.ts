@@ -55,6 +55,7 @@ export class AppManager {
         if (entry.name === 'node_modules' || entry.name === '.git') continue;
         this.walkDir(fullPath, files);
       } else {
+        if (entry.name === 'package-lock.json' || entry.name.endsWith('.lock')) continue;
         const relativePath = path.relative(this.appDir, fullPath);
         try {
           files[relativePath] = fs.readFileSync(fullPath, 'utf-8');
