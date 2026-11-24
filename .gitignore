@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.kane-spec/
+kane-verified.json
+VERIFICATION_REPORT.md
+*.tgz
+.DS_Store

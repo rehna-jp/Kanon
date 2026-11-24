@@ -1,0 +1,34 @@
+{
+  "name": "kane-spec",
+  "version": "1.0.0",
+  "description": "Write English specs. Ship verified apps. Kane CLI is your specification language.",
+  "main": "dist/index.js",
+  "bin": {
+    "kane-spec": "dist/index.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": ["kane-cli", "testing", "ai", "specification", "verification", "agent"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "openai": "^4.73.0",
+    "ora": "^5.4.1",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
