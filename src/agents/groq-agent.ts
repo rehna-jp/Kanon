@@ -13,7 +13,7 @@ export class GroqAgent extends BaseAgent {
   private client: OpenAI;
   private model: string;
 
-  constructor(model: string = 'llama-3.3-70b-versatile') {
+  constructor(model?: string) {
     super();
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
@@ -23,7 +23,8 @@ export class GroqAgent extends BaseAgent {
       apiKey,
       baseURL: 'https://api.groq.com/openai/v1',
     });
-    this.model = model;
+    // Use openai/gpt-oss-120b or env override
+    this.model = model || process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
   }
 
   async generate(context: AgentContext): Promise<AgentResponse> {
