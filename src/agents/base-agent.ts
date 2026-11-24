@@ -59,7 +59,8 @@ RULES:
 5. Use simple, standard tech. No complex build pipelines.
 6. Every page must have clear, semantic HTML with proper labels, IDs, and aria attributes.
 7. Forms must have visible labels, proper name attributes, and clear submit buttons.
-8. Include proper error handling and form validation.`;
+8. Include proper error handling and form validation.
+9. Make the UI visually stunning and modern (e.g. use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script> with dark mode / sleek cards).`;
   }
 
   /**
