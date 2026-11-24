@@ -1,7 +1,7 @@
 ---
 app: Todo App
 url: http://localhost:3000
-agent: openai
+agent: groq
 tech: express-html
 max_retries: 5
 ---

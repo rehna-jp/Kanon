@@ -25,7 +25,7 @@ export interface KaneFlow {
 export interface KaneSpec {
   appName: string;
   url: string;
-  agent: 'openai' | 'anthropic' | 'gemini';
+  agent: 'openai' | 'anthropic' | 'gemini' | 'groq';
   maxRetries: number;
   techStack: string;
   flows: KaneFlow[];
@@ -103,11 +103,11 @@ function buildFlow(raw: { name: string; lines: string[] }): KaneFlow {
   };
 }
 
-function validateAgent(agent: string): 'openai' | 'anthropic' | 'gemini' {
+function validateAgent(agent: string): 'openai' | 'anthropic' | 'gemini' | 'groq' {
   const normalized = agent.toLowerCase().trim();
-  if (['openai', 'anthropic', 'gemini'].includes(normalized)) {
-    return normalized as 'openai' | 'anthropic' | 'gemini';
+  if (['openai', 'anthropic', 'gemini', 'groq'].includes(normalized)) {
+    return normalized as 'openai' | 'anthropic' | 'gemini' | 'groq';
   }
-  console.warn(`Unknown agent "${agent}", defaulting to openai`);
-  return 'openai';
+  console.warn(`Unknown agent "${agent}", defaulting to groq`);
+  return 'groq';
 }
