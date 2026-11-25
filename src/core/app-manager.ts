@@ -32,7 +32,24 @@ export class AppManager {
       const filePath = path.join(this.appDir, file.path);
       const dir = path.dirname(filePath);
       fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(filePath, file.content, 'utf-8');
+
+      let content = file.content;
+      // Auto-sanitize JSON files if LLM double-escaped quotes
+      if (file.path.endsWith('.json')) {
+        try {
+          JSON.parse(content);
+        } catch {
+          const unescaped = content.replaceAll('\\"', '"').replaceAll('\\n', '\n');
+          try {
+            JSON.parse(unescaped);
+            content = unescaped;
+          } catch {
+            // keep as-is if unescape doesn't fix it
+          }
+        }
+      }
+
+      fs.writeFileSync(filePath, content, 'utf-8');
     }
   }
 
