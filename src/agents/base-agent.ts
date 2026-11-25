@@ -92,6 +92,14 @@ Return the complete app as JSON with all files.`;
    * Build the fix prompt with Kane failure context.
    */
   protected buildFixPrompt(context: AgentContext): string {
+    // Filter current files: skip large assets or metadata, only include code
+    const filteredFiles: Record<string, string> = {};
+    for (const [p, c] of Object.entries(context.currentFiles || {})) {
+      if (p.endsWith('.js') || p.endsWith('.html') || p.endsWith('.css') || p === 'package.json') {
+        filteredFiles[p] = c;
+      }
+    }
+
     return `The app you built has failures detected by Kane CLI (a real browser testing tool).
 
 APP NAME: ${context.appName}
@@ -104,7 +112,7 @@ KANE CLI FAILURE REPORT:
 ${context.failureReport}
 
 CURRENT FILES:
-${Object.entries(context.currentFiles || {})
+${Object.entries(filteredFiles)
   .map(([path, content]) => `--- ${path} ---\n${content}`)
   .join('\n\n')}
 
