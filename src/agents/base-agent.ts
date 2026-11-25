@@ -62,7 +62,7 @@ RULES:
 8. Include proper error handling and form validation.
 9. Make the UI visually stunning, modern, and perfectly centered:
    - Use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>
-   - Layout MUST be perfectly centered on screen: <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-6"> with a centered container <div class="max-w-5xl w-full mx-auto">
+   - Layout MUST be centered horizontally and start with comfortable top padding: <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center pt-12 pb-20 px-4"> with a centered container <div class="max-w-4xl w-full mx-auto">. Do NOT use justify-center on the body as that pushes content down.
    - Use polished dark-mode aesthetics: slate-900 card backgrounds, subtle borders (border border-slate-800), rounded-2xl corners, glowing accent buttons (bg-indigo-600 hover:bg-indigo-500), and crisp typography.`;
   }
 
