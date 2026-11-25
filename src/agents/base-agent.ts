@@ -60,7 +60,10 @@ RULES:
 6. Every page must have clear, semantic HTML with proper labels, IDs, and aria attributes.
 7. Forms must have visible labels, proper name attributes, and clear submit buttons.
 8. Include proper error handling and form validation.
-9. Make the UI visually stunning and modern (e.g. use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script> with dark mode / sleek cards).`;
+9. Make the UI visually stunning, modern, and perfectly centered:
+   - Use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>
+   - Layout MUST be perfectly centered on screen: <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-6"> with a centered container <div class="max-w-5xl w-full mx-auto">
+   - Use polished dark-mode aesthetics: slate-900 card backgrounds, subtle borders (border border-slate-800), rounded-2xl corners, glowing accent buttons (bg-indigo-600 hover:bg-indigo-500), and crisp typography.`;
   }
 
   /**
