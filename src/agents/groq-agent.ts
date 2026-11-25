@@ -35,7 +35,7 @@ export class GroqAgent extends BaseAgent {
         { role: 'user', content: this.buildGeneratePrompt(context) },
       ],
       temperature: 0.2,
-      max_tokens: 3500,
+      max_tokens: 6000,
       response_format: { type: 'json_object' },
     });
 
@@ -55,7 +55,7 @@ export class GroqAgent extends BaseAgent {
         { role: 'user', content: this.buildFixPrompt(context) },
       ],
       temperature: 0.1,
-      max_tokens: 3500,
+      max_tokens: 6000,
       response_format: { type: 'json_object' },
     });
 
