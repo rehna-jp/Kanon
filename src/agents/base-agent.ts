@@ -45,7 +45,7 @@ export abstract class BaseAgent {
     return `You are a senior full-stack developer. You write clean, production-ready code.
 
 RULES:
-1. Return ONLY valid JSON. No markdown, no explanation outside the JSON.
+1. Return ONLY a JSON object wrapped in a \`\`\`json code fence. No other text outside the fence.
 2. The JSON must have this exact shape:
    {
      "files": [
@@ -62,7 +62,7 @@ RULES:
 8. Include proper error handling and form validation.
 9. Make the UI visually stunning, modern, and perfectly centered:
    - Use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>
-   - Layout MUST be centered horizontally and start with comfortable top padding: <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center pt-12 pb-20 px-4"> with a centered container <div class="max-w-4xl w-full mx-auto">. Do NOT use justify-center on the body as that pushes content down.
+   - Layout MUST be centered horizontally and start with comfortable top padding: <body class="bg-slate-950 text-slate-100 min-h-screen pt-12 pb-20 px-4"> with a centered container <div class="max-w-4xl w-full mx-auto">. Do NOT use justify-center or flex on the body.
    - Use polished dark-mode aesthetics: slate-900 card backgrounds, subtle borders (border border-slate-800), rounded-2xl corners, glowing accent buttons (bg-indigo-600 hover:bg-indigo-500), and crisp typography.`;
   }
 

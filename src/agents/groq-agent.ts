@@ -23,8 +23,8 @@ export class GroqAgent extends BaseAgent {
       apiKey,
       baseURL: 'https://api.groq.com/openai/v1',
     });
-    // Use openai/gpt-oss-120b or env override
-    this.model = model || process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
+    // Use llama-3.1-8b-instant (fast, high TPM) or env override
+    this.model = model || process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
   }
 
   async generate(context: AgentContext): Promise<AgentResponse> {
@@ -35,8 +35,9 @@ export class GroqAgent extends BaseAgent {
         { role: 'user', content: this.buildGeneratePrompt(context) },
       ],
       temperature: 0.2,
-      max_tokens: 4000,
-      response_format: { type: 'json_object' },
+      max_tokens: 6000,
+      // No response_format: json_object — avoids server-side JSON validation
+      // which causes 400 errors when the response is long. We parse manually.
     });
 
     const content = response.choices[0]?.message?.content;
@@ -55,8 +56,8 @@ export class GroqAgent extends BaseAgent {
         { role: 'user', content: this.buildFixPrompt(context) },
       ],
       temperature: 0.1,
-      max_tokens: 4000,
-      response_format: { type: 'json_object' },
+      max_tokens: 6000,
+      // No response_format: json_object — same reason as generate()
     });
 
     const content = response.choices[0]?.message?.content;
