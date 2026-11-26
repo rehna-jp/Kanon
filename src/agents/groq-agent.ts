@@ -23,8 +23,8 @@ export class GroqAgent extends BaseAgent {
       apiKey,
       baseURL: 'https://api.groq.com/openai/v1',
     });
-    // Use llama-3.1-8b-instant (fast, high TPM) or env override
-    this.model = model || process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
+    // Use openai/gpt-oss-120b (best quality, free tier) or env override
+    this.model = model || process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
   }
 
   async generate(context: AgentContext): Promise<AgentResponse> {
